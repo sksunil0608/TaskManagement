@@ -20,7 +20,7 @@ This project combines a backend and frontend application.
     cd backend
     ```
 
-2. Create a `.env` file and add the following environment variables:
+2. Create a `.env` file and add the following environment variables and update the variables:
     ```
     DB_NAME='Database Schema'
     DB_USER='Database User Name'
