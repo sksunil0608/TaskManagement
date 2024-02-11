@@ -40,7 +40,7 @@ To install the project and start both backend and frontend servers together, fol
 
 4. Navigate to the frontend directory:
     ```bash
-    cd ../frontend
+    cd TaskManagement/frontend
     ```
 
 5. Install frontend dependencies:
@@ -53,4 +53,5 @@ To install the project and start both backend and frontend servers together, fol
     npm start
     ```
 
-This will start both backend and frontend servers concurrently. You can access the backend at `http://localhost:backend_port` and the frontend at `http://localhost:frontend_port`.
+This will start both backend and frontend servers concurrently. You can access the backend at `http://localhost:backend_port` and the frontend at `http://localhost:frontend_port`. Your fronted development server will open automatically at default port `http://localhost:3000`
+You can manually also check it : `http://localhost:3000`
