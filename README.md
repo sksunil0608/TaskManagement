@@ -22,6 +22,7 @@ This project combines a backend and frontend application for task management.
     echo DB_USER='YourDatabaseUserName' >> .env
     echo DB_PASSWORD='YourDatabasePassword' >> .env
     ```
+# Make Sure to Change Environment Variables
 
 ### Installation and Setup
 
