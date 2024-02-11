@@ -1,6 +1,14 @@
 
 # TaskManagement
 
+## To install the project and start both backend and frontend servers together, follow these steps:
+
+1. Clone the repository and navigate to the root directory:
+    ```bash
+    git clone https://github.com/sksunil0608/TaskManagement
+    cd TaskManagement
+    ```
+
 ## Combined Backend and Frontend TaskManagement Project Installation
 
 This project combines a backend and frontend application.
@@ -26,14 +34,6 @@ This project combines a backend and frontend application.
 
 
 ### Combined Installation and Setup
-
-To install the project and start both backend and frontend servers together, follow these steps:
-
-1. Clone the repository and navigate to the root directory:
-    ```bash
-    git clone https://github.com/sksunil0608/TaskManagement
-    cd TaskManagement
-    ```
 
 2. Install dependencies for both the backend and frontend:
     ```bash
