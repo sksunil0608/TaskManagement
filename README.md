@@ -56,3 +56,4 @@ To install the project and start both backend and frontend servers together, fol
 
 This will start both backend and frontend servers concurrently. You can access the backend at `http://localhost:backend_port` and the frontend at `http://localhost:frontend_port`. Your fronted development server will open automatically at default port `http://localhost:3000`
 You can manually also check it : `http://localhost:3000`
+# TaskManagementApp

@@ -11,7 +11,7 @@ export const getAllTasks = async () => {
 
 export const postAddTask = async (newTask) => {
     try {
-        const response = await axios.post(`${url}/add`, { 
+        const response = await axios.post(`${url}/task/create`, { 
             title: newTask.title, 
             description: newTask.description, 
             status: newTask.status 
@@ -26,7 +26,7 @@ export const postAddTask = async (newTask) => {
 
 export const postUpdateTask = async (taskId, newStatus) => {
     try {
-        const response = await axios.post(`${url}/update/${taskId}`, { status: newStatus });
+        const response = await axios.put(`${url}/task/update/${taskId}`, { status: newStatus });
         return { response: response.data, message: "Task Updated Successfully" };
     } catch (error) {
         console.log(error);
@@ -36,7 +36,7 @@ export const postUpdateTask = async (taskId, newStatus) => {
 
 export const postDelteTask = async (taskId) => {
     try {
-        const response = await axios.delete(`${url}/delete/${taskId}`);
+        const response = await axios.delete(`${url}/task/delete/${taskId}`);
         return { response: response.data, message: "Task Deleted Successfully" };
     } catch (error) {
         console.log(error);

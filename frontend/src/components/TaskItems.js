@@ -4,6 +4,12 @@ const TaskItems =  ({ tasks, onTaskUpdate, onTaskDelte }) => {
     const newStatus = true
     onTaskUpdate(taskId,newStatus)
   };
+
+   // Sort tasks by priority (High -> Medium -> Low) by default
+  const sortedTasks = tasks.slice().sort((a, b) => {
+    const priorityOrder = { High: 1, Medium: 2, Low: 3 };
+    return priorityOrder[a.priority] - priorityOrder[b.priority];
+  });
   return (
     <div className="">
       <table className="border-collapse w-full">
@@ -11,24 +17,28 @@ const TaskItems =  ({ tasks, onTaskUpdate, onTaskDelte }) => {
           <tr>
             <th className="px-4 py-2">ID</th>
             <th className="px-4 py-2">Title</th>
-            <th className="px-4 py-2">Description</th>
+            <th className="px-4 py-2">Category</th>
+            <th className="px-4 py-2">Priority</th>
             <th className="px-4 py-2">Status</th>
-            <th className="px-4 py-2">Delete</th>
           </tr>
         </thead>
         <tbody className="">
-          {tasks.length !== 0 &&
-            tasks.map((task, index) => (
+          {sortedTasks&&
+            sortedTasks.map((task, index) => (
               <tr
                 key={index}
                 className={`${index % 2 === 0 ? "bg-select" : "bg-unselect"} ${
                   task.status ? "line-through" : ""
                 } text-white opacity-[0.9] border border-black rounded-lg`}
               >
-                <td className="px-4 py-2">{task.id}</td>
-                <td className=" px-4 py-2">{task.title}</td>
-                <td className="px-4 py-2">{task.description}</td>
-                <th className="px-4 py-2">
+                <td className="px-10 py-2">{index}</td>
+                <td className=" px-10 py-2">{task.title}</td>
+                
+                <td className="px-10 py-2">{task.category}</td>
+                <td className="px-10 py-2">
+                  {task.priority}
+                </td>
+                <td className="px-10 py-2">
                   {task.status ? (
                     <div>
                       <button className="text-green-400 text-2xl">
@@ -51,41 +61,12 @@ const TaskItems =  ({ tasks, onTaskUpdate, onTaskDelte }) => {
                     <div>
                       <input
                         type="checkbox"
-                        onChange={() => handleTaskStatusChange(task.id)}
+                        onChange={() => handleTaskStatusChange(task._id)}
                         className="w-4 h-4"
                       />
                     </div>
                   )}
-                </th>
-                <th>
-                  <button
-                    onClick={() => {
-                      onTaskDelte(task.id);
-                    }}
-                  >
-                    <svg
-                      className="h-8 w-8 text-red-600"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      {" "}
-                      <rect
-                        x="3"
-                        y="3"
-                        width="18"
-                        height="18"
-                        rx="2"
-                        ry="2"
-                      />{" "}
-                      <line x1="9" y1="9" x2="15" y2="15" />{" "}
-                      <line x1="15" y1="9" x2="9" y2="15" />
-                    </svg>
-                  </button>
-                </th>
+                </td>
               </tr>
             ))}
         </tbody>

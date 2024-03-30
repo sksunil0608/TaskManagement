@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 
-const TaskForm = ({closeForm, onTaskAdd, loading }) => {
+const TaskForm = ({ closeForm, onTaskAdd, loading }) => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+  const [category, setCategory] = useState("General");
+  const [priority, setPriority] = useState("Low");
 
   // Handle the form Submit for task adding
   const handleSubmit = (event) => {
@@ -43,6 +45,7 @@ const TaskForm = ({closeForm, onTaskAdd, loading }) => {
               X
             </button>
           </div>
+          
           <form
             onSubmit={handleSubmit}
             className="mx-20 rounded px-11 pt-6 pb-4"
@@ -83,6 +86,68 @@ const TaskForm = ({closeForm, onTaskAdd, loading }) => {
                 required
               />
             </div>
+
+            {/* Select Category */}
+            <div className="mb-2">
+              <label
+                className="block text-white text-sm font-bold mb-2"
+                htmlFor="category"
+              >
+                Category
+              </label>
+              <select
+                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+                id="category"
+                value={category}
+                onChange={(e) => setCategory(e.target.value)}
+                required
+              >
+                <option value="">Select a category</option>
+                {[
+                  "General",
+                  "Work",
+                  "Personal",
+                  "Health",
+                  "Finance",
+                  "Social",
+                  "Study",
+                  "Travel",
+                ].map((category) => (
+                  <option key={category} value={category}>
+                    {category}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            {/* Select Priority */}
+            <div className="mb-2">
+              <label
+                className="block text-white text-sm font-bold mb-2"
+                htmlFor="priority"
+              >
+                Priority
+              </label>
+              <select
+                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+                id="priority"
+                value={priority}
+                onChange={(e) => setPriority(e.target.value)}
+                required
+              >
+                <option value="">Select a priority</option>
+                {[
+                  "Low",
+                  "Medium",
+                  "High",
+                ].map((category) => (
+                  <option key={category} value={category}>
+                    {category}
+                  </option>
+                ))}
+              </select>
+            </div>
+
             <div className="flex items-center justify-center">
               <button
                 type="submit"
